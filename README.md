@@ -5,10 +5,10 @@
 
 
 
-[JQuery 버전](../tab/jquery/index.html)
+[JQuery 버전](./tab/jquery/index.html)
 
 
 
-[Vanila JS 버전](../tab/native/index.html)
+[Vanila JS 버전](./tab/native/index.html)
 
 
