@@ -1,0 +1,122 @@
+
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+/* Reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {margin:0;padding:0;}
+body {min-width:360px;font-family:'Nanum Gothic', sans-serif;letter-spacing: 0;line-height:1;color:#000;-webkit-text-size-adjust:none;} /* 뷰포트 변환시 폰트크기 자동확대 방지 */
+img {vertical-align:top;border:0;max-width: 100%;}
+dl,ul,ol,menu,li {list-style:none;}
+button,input,select,textarea {vertical-align:middle;}
+h1,h2,h3,h4,h5,h6,address,caption,cite,code,dfn,em,var,strong {font-style:normal;font-weight:normal;}
+button {border:0;padding:0;margin:0;background:none; cursor:pointer;}
+button::-moz-focus-inner {margin:-1px;padding:0;}
+table {border-collapse:collapse;border-spacing:0;empty-cells:show;}
+legend,caption {width:0;height:0;overflow:hidden;visibility:hidden;font-size:0;line-height:0;text-indent:-999px;} /* For Screen Reader */
+fieldset {border:0}
+
+input[type='text'],input[type='password'],input[type='submit'],input[type='search'],input[type='number'],input[type='tel'] {font-family:'Nanum Gothic', sans-serif;-webkit-appearance:none; border-radius:0;}
+input:checked[type='checkbox'] {-webkit-appearance:checkbox;}
+button,input[type='button'],input[type='submit'],input[type='reset'],input[type='file'] {-webkit-appearance:button; border-radius:0;}
+input[type='search']::-webkit-search-cancel-button {-webkit-appearance:none;}
+
+a {color:#000;text-decoration:none;}
+a:active, a:hover {text-decoration:none;}
+
+*,
+*:before,
+*:after {box-sizing: inherit;}
+
+
+
+::-webkit-scrollbar {
+  width: 6px; /* 세로축 스크롤바 길이 */
+  height: 6px; /* 가로축 스크롤바 길이 */
+}
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #fff;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #ddd;
+}
+/* Top, Left 방향의 이동버튼 */
+::-webkit-scrollbar-button:start {
+  height: 0;
+}
+/* Bottom, Right 방향의 이동버튼 */
+::-webkit-scrollbar-button:end {
+  height: 0;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: violet; /* 우측 하단의 코너 부분 */
+}
+::-webkit-resizer {
+  background-color: green;
+}
+
+
+
+/* TAB */
+h1 {font-size: 24px;font-weight: bold;text-align: center;padding:30px 0;}
+h2 {padding: 20px;}
+
+.tab {width: 980px;margin: 30px auto;color: #98927C;font-size: 14px;line-height: 24px;}
+.tab ul {position: relative;width: 550px;margin:0 auto;overflow: hidden;height: 270px;}
+.tab ul li {float: left;width: 20%;}
+.tab ul li a {display: block;text-align: center;text-decoration: none;position: relative;color: #fff;height: 70px;line-height: 90px;background: #98927C;}
+.tab ul li a:hover,
+.tab ul li.active a {color: #98927C;background: #F2EEE2;}
+
+.tab ul li div.tabInfo {display: none;position: absolute;left:50%;top:70px;z-index: 1;width: 100%;height:160px;margin-left: -275px;background-color: #F2EEE2;overflow: hidden;}
+.tab ul li div.tabInfo p {padding:0 20px;}
+
+.tab ul li.active div.tabInfo {display: block;}
+
+
+.tab ul li a:hover,
+.tab ul li.active a {
+    background: -webkit-linear-gradient(165deg, transparent 29%, #F2EEE2 30%);
+    background: -o-linear-gradient(165deg, transparent 29%, #F2EEE2 30%);
+    background: linear-gradient(165deg, transparent 29%, #F2EEE2 30%);
+}
+
+.tab ul li a {
+    text-transform: uppercase;
+    background: -webkit-linear-gradient(165deg, transparent 29%, #98927C 30%);
+    background: -o-linear-gradient(165deg, transparent 29%, #98927C 30%);
+    background: linear-gradient(165deg, transparent 29%, #98927C 30%);
+}
+
+.tab ul li a:before {
+    content: '';
+    position: absolute;z-index: 11;left: 100%;top: -100%;
+    height: 70px;line-height: 90px;width: 0;
+    border-bottom: 70px solid rgba(0, 0, 0, 0.1);
+    border-right: 7px solid transparent;
+}
+
+.tab ul li a.active:before {
+    content: '';
+    position: absolute;z-index: 11;left: 100%;top: -100%;
+    height: 70px;line-height: 90px;width: 0;
+    border-bottom: 70px solid rgba(0, 0, 0, 0.2);
+    border-right: 20px solid transparent;
+}
+
+.tab ul li.active.addSlide div.tabInfo {animation: slideDown .5s ease-in-out forwards;}
+
+@keyframes slideDown {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 160px;
+    }
+}

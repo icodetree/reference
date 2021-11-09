@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tab - JQuery Version</title>
+	<meta charset="utf-8" />	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    *{padding: 0;margin: 0;}
+    li,ol{list-style:none}
+
+    /* TAB */
+    h1 {font-size: 24px;font-weight: bold;text-align: center;padding:30px 0;font-family: arial;}
+    h2 {padding: 50px 20px 0 20px;}
+
+    .tab {width: 980px;margin: 30px auto;font-family: sans-serif;color: #98927C;font-size: 14px;line-height: 24px;}
+    .tab ul {position: relative;width: 550px;margin:0 auto;overflow: hidden;height: 270px;}
+    .tab ul li {float: left;width: 20%;}
+    .tab ul li a {display: block;text-align: center;text-decoration: none;position: relative;color: #fff;height: 70px;line-height: 90px;background: #98927C;}
+    .tab ul li div.tabInfo {display: none;position: absolute;left:50%;top:70px;z-index: 1;width: 100%;margin-left: -275px;background-color: #F2EEE2;}
+    .tab ul li div.tabInfo p {padding:20px;}
+    
+    /* hover, active시 */
+    .tab ul li a:hover,
+    .tab ul li.active a {color: #98927C;background: #F2EEE2;}
+
+
+    /* 5개 버튼 CSS로 구현 */
+    .tab ul li a:hover,
+    .tab ul li.active a {
+        background: -webkit-linear-gradient(165deg, transparent 29%, #F2EEE2 30%);
+        background: -o-linear-gradient(165deg, transparent 29%, #F2EEE2 30%);
+        background: linear-gradient(165deg, transparent 29%, #F2EEE2 30%);
+    }
+    .tab ul li a {
+        text-transform: uppercase;
+        background: -webkit-linear-gradient(165deg, transparent 29%, #98927C 30%);
+        background: -o-linear-gradient(165deg, transparent 29%, #98927C 30%);
+        background: linear-gradient(165deg, transparent 29%, #98927C 30%);
+    }
+    .tab ul li a:before {
+        content: '';
+        position: absolute;z-index: 11;left: 100%;top: -100%;
+        height: 70px;line-height: 90px;width: 0;
+        border-bottom: 70px solid rgba(0, 0, 0, 0.1);
+        border-right: 7px solid transparent;
+    }
+    .tab ul li a.active:before {
+        content: '';
+        position: absolute;z-index: 11;left: 100%;top: -100%;
+        height: 70px;line-height: 90px;width: 0;
+        border-bottom: 70px solid rgba(0, 0, 0, 0.2);
+        border-right: 20px solid transparent;
+    }
+</style>
+</head>
+<body>
+
+    <section class="wrap">
+
+        <h1><ins>Tab - JQuery Version</ins></h1>
+
+        <div class="tab" id="block">
+            <ul>
+                <li>
+                    <a href="#">Tab_01</a>
+                    <div class="tabInfo">
+                    <h2>Heading 1</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla deserunt consectetur ratione id tempore laborum laudantium facilis reprehenderit beatae dolores ipsum nesciunt alias iusto dicta eius itaque blanditiis modi velit.</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Tab_02</a>
+                    <div class="tabInfo">
+                        <h2>Heading 2</h2>
+                        <p>Adipisci autem obcaecati velit natus quos beatae explicabo at tempora minima voluptates deserunt eum consectetur reiciendis placeat dolorem repellat in nam asperiores impedit voluptas iure repellendus unde eveniet accusamus ex.</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Tab_03</a>
+                    <div class="tabInfo">
+                        <h2>Heading 3</h2>
+                        <p>Atque ratione soluta laboriosam illo inventore amet ipsum aliquam assumenda harum provident nam accusantium neque debitis obcaecati maxime officia saepe ad ducimus in quam libero vero quasi. Saepe sit nisi?</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Tab_04</a>
+                    <div class="tabInfo">
+                        <h2>Heading 4</h2>
+                        <p>Quidem perferendis id sapiente cumque ullam repellendus dolorum odit rerum quibusdam tempora voluptatibus ipsum. Maiores laborum velit aperiam dicta quisquam assumenda at esse exercitationem culpa sequi porro minus ipsa aut.</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Tab_05</a>
+                    <div class="tabInfo">
+                        <h2>Heading 5</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla deserunt consectetur ratione id tempore laborum laudantium facilis reprehenderit beatae dolores ipsum nesciunt alias iusto dicta eius itaque blanditiis modi velit.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <script src="./main.js"></script>
+</body>
+</html>
+
+
+
