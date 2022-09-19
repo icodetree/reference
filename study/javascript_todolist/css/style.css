@@ -86,20 +86,19 @@ body {
     margin:3em 2em 0 2em;
     padding-right: 0.5em;
 }
-.filter button{
+.filter span{
     display: flex;
     align-items: center;
     color:#999;
     margin-left: 1em;
 }
 
-.filter button:nth-child(1){}
-.filter button:nth-child(2){color:#1fcb36}
-.filter button:nth-child(3){}
+.filter span:nth-child(1){}
+.filter span:nth-child(2){color:#1fcb36}
+.filter span:nth-child(3){}
 
-.filter button span {
-    display: inline-block;
-    margin:2px 3px 0 0;
+.filter span ion-icon{
+    margin:0 3px 0 0;
 }
 
 .listbox {
