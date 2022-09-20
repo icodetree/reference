@@ -12,10 +12,10 @@ export default class App extends Component {
             items: [
                 {
                     seq: 1,
+                    time : new Date().toLocaleDateString(),
                     contents: "할일목록입니다.",
                     active: false,
                 },
-
             ],
         };
     }
@@ -62,13 +62,15 @@ export default class App extends Component {
 
     addItem(contents) {
         const {items} = this.state;
+        console.log(items);
         const seq = Math.max(0, ...items.map(v => v.seq)) + 1;
         const active = false;
+        const time = new Date().toLocaleDateString();
 
         this.setState({
             items : [
                 ...items,
-                {seq, contents, active}
+                {seq, contents, active, time}
             ]
         });
     }

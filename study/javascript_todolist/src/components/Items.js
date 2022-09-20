@@ -11,13 +11,14 @@ export default class Items extends Component {
 
     template() {
         const { filteredItems } = this.props;
+        console.log(filteredItems);
         return `
             <section class="listbox">
-                ${filteredItems.map(({ contents, active, seq }) =>`
+                ${filteredItems.map(({ contents, active, seq, time }) =>`
                     <article class="msgbox" data-seq="${seq}">
                         <header class="msg_header">
                             <div class="number">No. ${seq}</div>
-                            <!--<div class="date">2022-01-01</div>-->
+                            <div class="date">${time}</div>
                         </header>
                         <p class="list ${active ? 'active' : ''}">
                             ${contents}
