@@ -10,5 +10,5 @@ Funcoding Reference Collection
 -   [CSS iPhone](/study/OT/iPhone/)
 -   [CSS smoke Animation](/study/OT/smoke/)
 -   [CSS waterdrops](/study/OT/water/)
--   [CSS card design](/study/OT/water/)
--   [javascript calculator](/study/OT/calculator/)
+-   [CSS card design](/study/OT/card_design/)
+-   [Javascript calculator](/study/OT/calculator/)
