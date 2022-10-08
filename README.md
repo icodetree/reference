@@ -13,3 +13,4 @@ Funcoding Reference Collection
 -   [CSS Card Design](/study/OT/card_design/)
 -   [CSS button Line Animation](/study/OT/button_effect_01/)
 -   [Javascript Calculator](/study/OT/calculator/)
+-   [Javascript Split video](/study/OT/split_video/)
