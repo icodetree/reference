@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Magic menu Indicator</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <section>
+            <div class="side" id="side1">
+                <video
+                    src="index.mp4"
+                    type="video/mp4"
+                    autoplay
+                    loop
+                    muted
+                ></video>
+            </div>
+            <div class="side" id="side2">
+                <video
+                    src="index.mp4"
+                    type="video/mp4"
+                    autoplay
+                    loop
+                    muted
+                ></video>
+            </div>
+        </section>
+        <div class="content">
+            <h2>Split video on page scroll</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi
+                nihil exercitationem architecto explicabo, perferendis eaque
+                quod soluta illum vitae iste mollitia aut expedita fugiat
+                reprehenderit, ipsam dolores. Consectetur minus architecto
+                reprehenderit quia perferendis dicta vel aspernatur cupiditate?
+                Pariatur nobis distinctio ipsam aspernatur consectetur
+                consequuntur libero impedit quos excepturi quibusdam quidem
+                dolor aliquam, tempora nam nulla cum dolorem! Eum necessitatibus
+                officiis illum, natus dolore tenetur cum, alias inventore minus
+                blanditiis delectus iure labore voluptatum molestiae! Delectus
+                aut rem dicta ipsam. Nam quas numquam quaerat. Nisi ab quam,
+                voluptas repudiandae ullam cupiditate eos ratione illo enim
+                voluptatum sed hic aperiam omnis facere.
+            </p>
+        </div>
+
+        <script>
+            let side1 = document.getElementById("side1");
+            let side2 = document.getElementById("side2");
+
+            window.addEventListener("scroll", function () {
+                side1.style.left = -window.pageYOffset + "px";
+                side2.style.left = window.pageYOffset + "px";
+            });
+        </script>
+    </body>
+</html>
