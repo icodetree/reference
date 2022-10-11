@@ -14,3 +14,5 @@ Funcoding Reference Collection
 -   [CSS button Line Animation](/study/OT/button_effect_01/)
 -   [Javascript Calculator](/study/OT/calculator/)
 -   [Javascript Split video](/study/OT/split_video/)
+-   [Javascript Flying Rocket](/study/OT/flying_rocket/)
+-   [Javascript Email Validation](/study/OT/email_validation/)
