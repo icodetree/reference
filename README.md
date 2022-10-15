@@ -12,6 +12,8 @@ Funcoding Reference Collection
 -   [CSS Waterdrops](/study/OT/water/)
 -   [CSS Card Design](/study/OT/card_design/)
 -   [CSS button Line Animation](/study/OT/button_effect_01/)
+-   [CSS Gradient Loading Bar](/study/OT/gradient_loading_bar/)
+
 -   [Javascript Calculator](/study/OT/calculator/)
 -   [Javascript Split video](/study/OT/split_video/)
 -   [Javascript Flying Rocket](/study/OT/flying_rocket/)
