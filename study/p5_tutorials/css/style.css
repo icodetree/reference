@@ -1,0 +1,19 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	min-height: 100vh;
+    background: rgba(26,32,44,1);
+    overflow: hidden;
+    color:#fff;
+}
+
+h1 {
+	text-align: center;
+	margin: 1em 0;
+}
