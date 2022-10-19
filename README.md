@@ -18,3 +18,4 @@ Funcoding Reference Collection
 -   [Split video](/study/OT/split_video/)
 -   [Flying Rocket](/study/OT/flying_rocket/)
 -   [Email Validation](/study/OT/email_validation/)
+-   [Magic Text](/study/OT/magic_text/)
