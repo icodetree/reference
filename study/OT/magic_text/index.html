@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Magic Text</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <h1>
+            Go to the world of
+            <span class="magic">
+                <span class="magic-star"
+                    ><ion-icon name="star-sharp"></ion-icon
+                ></span>
+                <span class="magic-star"
+                    ><ion-icon name="star-sharp"></ion-icon
+                ></span>
+                <span class="magic-star"
+                    ><ion-icon name="star-sharp"></ion-icon
+                ></span>
+                <span class="magic-text">fun codes with funcoding</span>
+            </span>
+        </h1>
+
+        <script
+            type="module"
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+        ></script>
+        <script
+            nomodule
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+        ></script>
+
+        <script>
+            let index = 0;
+            let interval = 1000;
+            let magicStar = document.getElementsByClassName("magic-star");
+
+            const rand = (min, max) =>
+                Math.floor(Math.random() * (max - min + 1)) + min;
+
+            const animate = (star) => {
+                star.style.setProperty("--star-left", `${rand(-5, 100)}%`);
+                star.style.setProperty("--star-top", `${rand(-40, 80)}%`);
+
+                star.style.animation = "none";
+                star.offsetHeight;
+                star.style.animation = "";
+            };
+
+            for (const star of magicStar) {
+                setTimeout(() => {
+                    animate(star);
+
+                    setInterval(() => animate(star), 1000);
+                }, index++ * (interval / 3));
+            }
+        </script>
+    </body>
+</html>

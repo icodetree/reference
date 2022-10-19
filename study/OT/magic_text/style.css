@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --purple : rgb(123, 31, 162);
+    --violet : rgb(103, 58, 183);
+    --pink : rgb(244, 143, 177);
+    --star-left : 0;
+    --star-top : 0;
+}
+
+body {
+    display: grid;
+    height: 100vh;
+    overflow: hidden;
+    place-items: center;
+    background: rgb(10, 10, 10);
+}
+
+h1 {
+    color: #fff;
+    font-size: clamp(1.5em, 2vw, 5em);
+}
+h1 .magic {
+    display: inline-block;
+    position: relative;
+}
+h1 .magic .magic-star {
+    --size : clamp(20px, 1.5vw, 30px);
+    display: block;
+    width: var(--size);
+    height: var(--size);
+    left: var(--star-left);
+    position: absolute;
+    top: var(--star-top);
+    color:var(--violet);
+    animation:scale 700ms ease forwards;
+}
+
+h1 .magic .magic-star ion-icon{
+    display: block;
+    opacity: 0.7;
+    animation:rotate 1000ms linear infinite;
+}
+
+h1 .magic .magic-star:nth-child(1)  {
+    animation-delay: 0ms;
+}
+
+h1 .magic .magic-star:nth-child(2)  {
+    animation-delay: 300ms;
+}
+
+h1 .magic .magic-star:nth-child(3)  {
+    animation-delay: 600ms;
+}
+
+h1 .magic .magic-text {
+    animation: background-pan 2s linear infinite;
+    background: linear-gradient(
+        to right,
+        var(--purple),
+        var(--violet),
+        var(--pink),
+        var(--purple)
+    );
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    white-space: nowrap;
+}
+@keyframes background-pan {
+    from {
+        background-position: 0% center;
+    }
+    to {
+        background-position: -200% center;
+
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
