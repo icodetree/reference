@@ -1,0 +1,29 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+li {list-style: none;}
+
+:root {
+	--white : #fff;
+}
+
+body {
+	min-height: 100vh;
+    background: rgba(26,32,44,1);
+    overflow: hidden;
+    color:#fff;
+	display: grid;
+	place-items: center;
+}
+
+#canvas {
+	position: fixed;
+	z-index: -1;
+}
+
+.wrap {
+	text-align: center;
+}
