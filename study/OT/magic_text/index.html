@@ -51,10 +51,11 @@
             };
 
             for (const star of magicStar) {
+                console.log(typeof magicStar, star);
                 setTimeout(() => {
                     animate(star);
 
-                    setInterval(() => animate(star), 1000);
+                    setInterval(() => animate(star), 2000);
                 }, index++ * (interval / 3));
             }
         </script>
