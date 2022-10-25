@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Color Flipper</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="inner">
+                <h1>Backgraound Color : <span class="text"></span></h1>
+                <button class="btn">CLICK ME</button>
+            </div>
+        </div>
+
+        <script>
+            class Flipper {
+                constructor() {
+                    this.wrap = document.querySelector(".wrap");
+                    this.btn = document.querySelector(".btn");
+                    this.text = document.querySelector(".text");
+                }
+
+                init() {
+                    this.eventHandler();
+                }
+
+                eventHandler() {
+                    this.btn.addEventListener("click", () => {
+                        this.randomBgColor();
+                    });
+                }
+
+                randomBgColor() {
+                    this.wrap.style.backgroundColor = `
+                    rgb(${this.randomNum(0, 255)},
+                        ${this.randomNum(0, 255)},
+                        ${this.randomNum(0, 255)})`;
+
+                    this.text.innerHTML = `
+                    rgb(${this.randomNum(0, 255)},
+                        ${this.randomNum(0, 255)},
+                        ${this.randomNum(0, 255)})`;
+                }
+
+                randomNum(min, max) {
+                    return Math.floor(Math.random() * max) + min;
+                }
+            }
+            const flipper = new Flipper();
+            flipper.init();
+        </script>
+    </body>
+</html>
