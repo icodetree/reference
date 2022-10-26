@@ -4,10 +4,6 @@
 	box-sizing: border-box;
 }
 
-:root {
-    --bgcolor : 0;
-}
-
 body {
 	min-height: 100vh;
     background: #ddd;
