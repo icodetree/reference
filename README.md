@@ -21,4 +21,5 @@ Funcoding Reference Collection
 -   [Magic Text](/study/OT/magic_text/)
 -   [Simple Art](/study/OT/simple_art/)
 -   [Make Anime](/study/OT/make_anime/)
+-   [Wave Banner](/study/OT/wave_banner/)
 -   [Color Flipper](/study/freecode/colorflipper/)
