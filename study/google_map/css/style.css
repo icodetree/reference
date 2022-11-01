@@ -19,6 +19,12 @@ h2 {
     font-size: 20px;
     margin: 0 0 10px 0;
 }
+h2 span {
+    color: #e74045;
+    font-size: 14px;
+    margin: 0 0 10px 0;
+    font-weight: normal;
+}
 .wrap {
     width: 1280px;
     margin: 0 auto;
@@ -65,9 +71,43 @@ h2 {
 }
 
 .list ul li a {
+    position: relative;
     display: block;
     width: 100%;
     color: #000;
+}
+
+.list ul li input{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+}
+
+.list ul li input + label{
+    display: block;
+    cursor: pointer;
+}
+.list ul li input:disabled + label{
+    position: relative;
+    opacity: 0.3;
+}
+.list ul li input:disabled + label::after{
+    content: '';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 250px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    /* color:#fff;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 10px; */
 }
 
 .list ul li .photo{
@@ -85,7 +125,7 @@ h2 {
 }
 
 .list ul li dl dt{
-    color: #c05234;
+    color: #000;
     font-size: 16px;
     font-weight: bold;
 }
@@ -97,9 +137,6 @@ h2 {
     line-height: 1.5;
 }
 
-.aside {
-
-}
 
 .aside .side_01 {
     margin-bottom: 30px;
@@ -131,12 +168,25 @@ h2 {
 }
 
 .aside .select_list dl dd {
-    padding: 0.5em;
+    padding: 0.5em 0;
 }
 
+.aside .select_list dl dd.active p {
+    display: none;
+}
+
+.aside .select_list p,
 .aside .select_list ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0.5em;
     border-bottom: 1px solid #ddd;
+}
+.aside .select_list ul li span {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 18px;
 }
 
 .aside .btn_set {
