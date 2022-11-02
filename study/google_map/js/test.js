@@ -22,13 +22,13 @@ const aside = container.querySelector(".aside");
 
 let asideList;
 let arrName;
-let clickBool = true;
-let itemsIdx = 0;
 
 let listArr = {
     food: [],
     place: [],
 };
+let clickBool = true;
+let index = 0;
 
 function init() {
     setList();
@@ -37,23 +37,22 @@ function init() {
 
 function setList() {
     [...allitems].forEach((item) => {
-        let input = item.firstElementChild;
         let title = item.querySelector("dt").textContent;
         let photo = item.querySelector(".photo");
         let posX = Number(item.getAttribute("data-posX"));
         let posY = Number(item.getAttribute("data-posY"));
 
         // 체크 이벤트 리스너
-        input.addEventListener("change", () => {
+        item.addEventListener("click", (e) => {
             if (!clickBool) return false;
             clickBool = false;
-            setCheckList(input);
+            setCheckList(item);
         });
     });
 }
 
-function setCheckList(input) {
-    let nameCheck = input.parentElement.className;
+function setCheckList(item) {
+    let nameCheck = item.className;
     let name;
     let maxLeng;
     let title;
@@ -63,7 +62,7 @@ function setCheckList(input) {
         name = "음식";
         maxLeng = 2;
         asideList = aside.querySelector(".setFoodList");
-    } else {
+    } else if (nameCheck === "place") {
         arrName = listArr.place;
         name = "장소/테마";
         maxLeng = 4;
@@ -72,56 +71,48 @@ function setCheckList(input) {
 
     if (arrName.length >= maxLeng) {
         alert(`${name}별 리스트는 최대 ${maxLeng}개까지 선택가능합니다.`);
-        input.checked = false;
         return;
     }
 
-    if (input.checked) {
-        input.disabled = true;
-        input.setAttribute("data-index", ++itemsIdx);
+    console.log(item);
+    if (!item.classList.contains("active")) {
+        item.setAttribute("data-index", ++index);
+        item.classList.add("active");
 
-        arrName.push(input);
+        arrName.push(item);
 
         for (let i in arrName) {
-            title =
-                arrName[i].nextElementSibling.querySelector("dt").textContent;
+            title = arrName[i].querySelector("dt").textContent;
         }
+        console.log(asideList, nameCheck, nameCheck === "food");
 
         // 오른쪽 리스트에 추가
         asideList.insertAdjacentHTML(
             "beforeEnd",
             `<li><strong>${title}</strong> <span class=minus><ion-icon name="remove-circle"></ion-icon></span></li>`
         );
+
+        // 리스트 삭제
+        removeList();
+
+        clickBool = true;
+    } else {
+        return false;
     }
-    removeList();
-    clickBool = true;
 }
 
 function removeList() {
-    let li = [...asideList.querySelectorAll("li")];
+    let removeBtn = document.querySelectorAll(".minus");
 
-    li.forEach((item, idx) => {
-        item.addEventListener("click", function () {
-            console.log(this.querySelector("strong"));
-            arrName[idx].disabled = false;
-            arrName[idx].checked = false;
+    [...removeBtn].forEach((item, idx) => {
+        // 체크 이벤트 리스너
+        item.addEventListener("click", (e) => {
+            if (arrName.length === 0) return;
             arrName.splice(idx, 1);
-            itemsIdx = itemsIdx - 1;
+            console.log(arrName, arrName.length, idx);
+
             item.parentElement.remove();
         });
-        // let delIdx = idx + 1;
-        // let elmIndex = arrName[idx].getAttribute("data-index") * 1;
-
-        // // 체크 이벤트 리스너
-        // item.addEventListener("click", (e) => {
-        //     if (arrName.length === 0) return;
-        //     console.log(arrName, item);
-        //     // arrName[idx].disabled = false;
-        //     // arrName[idx].checked = false;
-        //     // arrName.splice(idx, 1);
-        //     // item.parentElement.remove();
-        //     // itemsIdx = itemsIdx - 1;
-        // });
     });
 }
 

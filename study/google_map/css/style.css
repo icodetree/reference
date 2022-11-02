@@ -90,10 +90,12 @@ h2 span {
     display: block;
     cursor: pointer;
 }
+.list ul li input.active + label,
 .list ul li input:disabled + label{
     position: relative;
     opacity: 0.3;
 }
+.list ul li input.active + label::after,
 .list ul li input:disabled + label::after{
     content: '';
     display: flex;
@@ -182,10 +184,10 @@ h2 span {
     align-items: center;
     padding: 0.5em;
     border-bottom: 1px solid #ddd;
+    cursor: pointer;
 }
 .aside .select_list ul li span {
     display: inline-block;
-    cursor: pointer;
     font-size: 18px;
 }
 
