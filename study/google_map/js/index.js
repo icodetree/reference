@@ -16,123 +16,234 @@
     가장 짧은 평균시간을 가진 B가 B2일 경우 : A1>B2>A2
     그 후 A2 에서 가장 짧은 이동시간을 가진 B를 찾아 A2 뒤에 입력한다
 */
-const container = document.querySelector ('#mainContents');
-const allitems = container.querySelectorAll ('li > a');
-const aside = container.querySelector ('.aside');
 
-let asideList;
-let arrName;
-let clickBool = true;
-let itemsIdx = 0;
-
-let listArr = {
-  food: [],
-  place: [],
-};
-
-function init () {
-  setList ();
-  sum ();
+class Travel {
+  constructor () {
+    this.setup ();
+    this.setEvent ();
+    this.saveEvent ();
+  }
+  setup () {}
+  setEvent () {}
 }
 
-function setList () {
-  [...allitems].forEach (item => {
-    let input = item.firstElementChild;
-    let title = item.querySelector ('dt').textContent;
-    let photo = item.querySelector ('.photo');
-    let posX = Number (item.getAttribute ('data-posX'));
-    let posY = Number (item.getAttribute ('data-posY'));
+class Category extends Travel {
+  setup () {
+    this.arrFood = [];
+    this.arrPlace = [];
+    this.inputAll = document.querySelectorAll ('input');
+    this.foodInput = document.querySelectorAll ('.foodList input');
+    this.placeInput = document.querySelectorAll ('.placeList input');
+    this.aside = document.querySelector ('.aside');
+    this.foodList = this.aside.querySelector ('.setFoodList');
+    this.placeList = this.aside.querySelector ('.setPlaceList');
+    this.btnSave = this.aside.querySelector ('.save');
+    this.popupWrap = document.querySelector ('.popupWrap');
+    this.popClose = document.querySelector ('.close');
 
-    // 체크 이벤트 리스너
-    input.addEventListener ('change', () => {
-      if (!clickBool) return false;
-      clickBool = false;
-      setCheckList (input);
+    this.foodIdx = 0;
+    this.placeIdx = 0;
+    this.clickBool = true;
+    this.name = null;
+    this.arrName = null;
+    this.nameCheck = null;
+    this.maxLeng = null;
+  }
+
+  setEvent () {
+    [...this.inputAll].forEach ((item, idx) => {
+      item.addEventListener ('change', e => this.checkEvent (item, idx));
     });
-  });
-}
-
-function setCheckList (input) {
-  let nameCheck = input.parentElement.className;
-  let name;
-  let maxLeng;
-  let title;
-
-  if (nameCheck === 'food') {
-    arrName = listArr.food;
-    name = '음식';
-    maxLeng = 2;
-    asideList = aside.querySelector ('.setFoodList');
-  } else {
-    arrName = listArr.place;
-    name = '장소/테마';
-    maxLeng = 4;
-    asideList = aside.querySelector ('.setPlaceList');
   }
 
-  if (arrName.length >= maxLeng) {
-    alert (`${name}별 리스트는 최대 ${maxLeng}개까지 선택가능합니다.`);
-    input.checked = false;
-    return;
-  }
+  checkEvent (item, idx) {
+    this.name;
+    this.arrName;
+    this.nameCheck = item.parentElement.className;
+    this.maxLeng;
 
-  if (input.checked) {
-    input.disabled = true;
-    input.setAttribute ('data-index', ++itemsIdx);
-
-    arrName.push (input);
-
-    for (let i in arrName) {
-      title = arrName[i].nextElementSibling.querySelector ('dt').textContent;
+    if (this.nameCheck === 'food') {
+      this.arrName = this.arrFood;
+      this.name = '음식';
+      this.maxLeng = 2;
+    } else {
+      this.arrName = this.arrPlace;
+      this.name = '장소/테마';
+      this.maxLeng = 4;
     }
 
-    // 오른쪽 리스트에 추가
-    asideList.insertAdjacentHTML (
-      'beforeEnd',
-      `<li><strong>${title}</strong> <span class=minus><ion-icon name="remove-circle"></ion-icon></span></li>`
+    if (item.checked) {
+      if (this.arrName.length >= this.maxLeng) {
+        alert (`${this.name}별 리스트는 최대 ${this.maxLeng}개까지 선택가능합니다.`);
+        item.checked = false;
+        return false;
+      }
+      this.addItem (item, idx);
+    } else {
+      this.removeItem (item, idx);
+    }
+  }
+
+  addItem (input) {
+    if (!this.clickBool) return false;
+    this.clickBool = false;
+
+    let foodObj = {};
+    let placeObj = {};
+
+    let label = input.nextElementSibling;
+    let src = label.querySelector ('img').getAttribute ('src');
+    let title = label.querySelector ('dt').innerText;
+    let posX = Number (input.getAttribute ('data-posx'));
+    let posY = Number (input.getAttribute ('data-posy'));
+
+    // console.log ('addItem', this.nameCheck);
+    // input.disabled = true;
+
+    if (this.nameCheck === 'food') {
+      foodObj.src = src;
+      foodObj.title = title;
+      foodObj.posX = posX;
+      foodObj.posY = posY;
+
+      input.setAttribute ('data-index', this.foodIdx++);
+
+      // 배열추가
+      this.arrFood.push (foodObj);
+
+      // 오른쪽 리스트에 추가
+      this.foodList.insertAdjacentHTML (
+        'beforeEnd',
+        `<li>${foodObj.title}</li>`
+      );
+      //   console.log ('food', this.arrFood, title);
+    } else {
+      placeObj.src = src;
+      placeObj.title = title;
+      placeObj.posX = posX;
+      placeObj.posY = posY;
+
+      input.setAttribute ('data-index', this.placeIdx++);
+
+      // 배열추가
+      this.arrPlace.push (placeObj);
+
+      // 오른쪽 리스트에 추가
+      this.placeList.insertAdjacentHTML (
+        'beforeEnd',
+        `<li>${placeObj.title}</li>`
+      );
+      //   console.log ('place', this.arrPlace, input.getAttribute ('data-index'));
+    }
+    this.clickBool = true;
+  }
+
+  removeItem (input) {
+    // 음식별 삭제
+    if (!this.clickBool) return false;
+    this.clickBool = false;
+
+    if (this.nameCheck === 'food') {
+      let inputTit = input.nextElementSibling.querySelector ('dt').textContent;
+      let fBtns = [...this.foodList.querySelectorAll ('li')];
+
+      for (let i = 0; i < fBtns.length; i++) {
+        if (fBtns[i].textContent === inputTit) {
+          fBtns[i].remove ();
+          fBtns.splice (i, 1);
+
+          this.arrFood.splice (i, 1);
+          this.foodIdx = this.foodIdx - 1;
+
+          i--;
+        }
+      }
+
+      console.log ('after', this.arrFood, fBtns);
+    } else {
+      // 장소별 삭제
+      let inputTit = input.nextElementSibling.querySelector ('dt').textContent;
+      let pBtns = [...this.placeList.querySelectorAll ('li')];
+
+      for (let i = 0; i < pBtns.length; i++) {
+        if (pBtns[i].textContent === inputTit) {
+          pBtns[i].remove ();
+          pBtns.splice (i, 1);
+
+          this.arrPlace.splice (i, 1);
+          this.placeIdx = this.placeIdx - 1;
+
+          i--;
+        }
+      }
+
+      console.log ('after', this.arrPlace, pBtns);
+    }
+
+    this.clickBool = true;
+  }
+
+  saveEvent () {
+    this.btnSave.addEventListener ('click', e => {
+      e.preventDefault ();
+      this.saveCheck ();
+    });
+  }
+
+  saveCheck () {
+    const liList = this.aside.querySelectorAll ('li');
+    const foodLi = this.foodList.querySelectorAll ('li');
+    const placeLi = this.placeList.querySelectorAll ('li');
+
+    if (foodLi.length < 2) {
+      alert (`2개 항목을 선택해주세요!`);
+      return;
+    } else if (placeLi.length < 2) {
+      alert (`장소/테마는 2개 ~ 4개 항목을 선택해주세요!`);
+      return;
+    } else {
+      getPage ();
+      //   this.saveStorage ();
+      //   this.popupWrap.classList.add ('active');
+      //   this.popHanler ();
+    }
+  }
+
+  pageUrl () {
+    // let state = {food: this.arrFood, place: this.arrPlace},
+    //   title = 'Travel Plan',
+    //   url = location.origin + '/plan.html';
+    // history.pushState (state, title, url);
+  }
+
+  popHanler () {
+    this.popClose.addEventListener ('click', () => {
+      this.popupWrap.classList.remove ('active');
+    });
+  }
+
+  saveStorage () {
+    console.log ('saveStorage');
+    localStorage.setItem (
+      'TravelData',
+      JSON.stringify ({food: this.arrFood, place: this.arrPlace})
     );
   }
-  removeList ();
-  clickBool = true;
 }
 
-function removeList () {
-  let li = [...asideList.querySelectorAll ('li')];
+const category = new Category ();
 
-  li.forEach ((item, idx) => {
-    item.addEventListener ('click', function () {
-      console.log (this.querySelector ('strong'));
-      arrName[idx].disabled = false;
-      arrName[idx].checked = false;
-      arrName.splice (idx, 1);
-      itemsIdx = itemsIdx - 1;
-      item.parentElement.remove ();
-    });
-    // let delIdx = idx + 1;
-    // let elmIndex = arrName[idx].getAttribute("data-index") * 1;
-
-    // // 체크 이벤트 리스너
-    // item.addEventListener("click", (e) => {
-    //     if (arrName.length === 0) return;
-    //     console.log(arrName, item);
-    //     // arrName[idx].disabled = false;
-    //     // arrName[idx].checked = false;
-    //     // arrName.splice(idx, 1);
-    //     // item.parentElement.remove();
-    //     // itemsIdx = itemsIdx - 1;
-    // });
-  });
+async function getPage () {
+  // 1초 후, 변수 result는 2가 됨
+  let result = await new Plan ();
+  console.log (result);
 }
 
-function sum () {
-  const startLoc = new google.maps.LatLng (33.590594, 130.408332);
-  const endLoc = new google.maps.LatLng (33.586631, 130.376192);
-  const distance = google.maps.geometry.spherical.computeDistanceBetween (
-    startLoc,
-    endLoc
-  );
-
-  const diff = parseInt (distance / 1000);
-  console.log (diff + 'km'); // Distance in Kms.
+class Plan extends Travel {
+  then (resolve, reject) {
+    super.setup ();
+    console.log (super.setup ().arrFood);
+    // 1000밀리초 후에 이행됨(result는 this.num*2)
+    setTimeout (() => resolve (this.num * 2), 1000); // (*)
+  }
 }
-init ();
