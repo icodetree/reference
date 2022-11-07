@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- 공통 헤더 -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" />
+	<title>코코도오</title>
+	<!-- 공통 헤더 -->
+
+	<link rel="stylesheet" href="./css/style.css" />
+
+	<!-- 이미지 캡쳐 시 필요한 라이브러리 -->
+	<script src="./scripts/html2canvas.min.js"></script>
+
+</head>
+
+<body>
+	<!-- 공통 헤더 -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/index.html">
+			  </i>코코도오 </a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="/articles">여행 계획 구경하기</a>
+					</li>
+	
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- 공통 헤더 -->
+
+		<!-- 중앙컨텐츠 시작 -->
+		<main class="container" id="mainContents">
+			<!-- 사진 선택 -->
+			<section class="content">
+				<!-- 음식별 -->
+				<section class="foodList">
+					<div class="list">
+						<h2>
+							음식별
+							<span>(음식을 2개선택해주세요! 최대 2개까지만
+								선택가능)</span>
+						</h2>
+						<ul>
+							<li>
+								<a href="#" class="food">
+									<input type="checkbox" name="food_01" id="food_01" data-posX="33.590594"
+										data-posY="130.408332" />
+									<label for="food_01">
+										<div class="photo">
+											<img src="./images/A1.jpg" alt="" />
+										</div>
+										<dl>
+											<dt>나카스 포장마차 거리</dt>
+											<dd>
+												만화나 영화에서 볼법한
+												포장마차들이 매우 많다함!
+												여기서 저녁먹을겸 술 딱
+												걸치고 숙소로 귀가~
+											</dd>
+										</dl>
+									</label>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="food">
+									<input type="checkbox" name="food_02" id="food_02" data-posX="33.591051"
+										data-posY="130.381112" />
+									<label for="food_02">
+										<div class="photo">
+											<img src="./images/A2.jpg" alt="" />
+										</div>
+										<dl>
+											<dt>사누키우동 시나리</dt>
+											<dd>
+												우동 인기만점 맛집! #미슐랭
+												웨이팅 한시간 걸려서 먹고
+												후회 안하는 맛집!
+											</dd>
+										</dl>
+									</label>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="food">
+									<input type="checkbox" name="food_03" id="food_03" data-posX="34.668443"
+										data-posY="135.50344" />
+
+									<label for="food_03">
+										<div class="photo">
+											<img src="./images/A3.jpg" alt="" />
+										</div>
+										<dl>
+											<dt>미즈노 오코노미야끼</dt>
+											<dd>
+												도톤보리 근처 오코노미야끼
+												맛집! 오사카 스타일
+												오코노미야키는 뭐가 다를까?
+											</dd>
+										</dl>
+									</label>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="food">
+									<input type="checkbox" name="food_04" id="food_04" data-posX="34.648261"
+										data-posY="135.502002" />
+									<label for="food_04">
+										<div class="photo">
+											<img src="./images/A4.jpg" alt="" />
+										</div>
+										<dl>
+											<dt>키라쿠 라멘</dt>
+											<dd>
+												오사카의 맛 라멘
+												키라쿠(스카이빌딩) 에
+												있다고함 일본에 갔는데
+												라멘은 먹어야지?
+											</dd>
+										</dl>
+									</label>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="food">
+									<input type="checkbox" name="food_05" id="food_05" data-posX="35.666224"
+										data-posY="139.770776" />
+									<label for="food_05">
+										<div class="photo">
+											<img src="./images/A5.jpg" alt="" />
+										</div>
+										<dl>
+											<dt>스시잔마이 본점</dt>
+											<dd>
+												리뷰 6천개 넘는 스시집! 더
+												설명이 필요한가..? 스시
+												먹어봐야지 !
+											</dd>
+										</dl>
+									</label>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</section>
+
+				<section class="placeList">
+					<!-- 장소별 -->
+					<div class="list">
+						<h2>
+							장소별
+							<span>(장소와 테마를 2개 이상 선택하세요! 최대
+								4개까지 선택가능)
+							</span>
+						</h2>
+						<ul>
+							<li>
+								<a href="#" class="place">
+									<input type="checkbox" name="place_01" id="place_01" data-posX="33.586631"
+										data-posY="130.376192" />
+									<label for="place_01">
+										<div class="photo">
+											<img src="./images/B1.jpg" alt="" />
+										</div>
+										<dl>
+											<dt>오호리 공원</dt>
+											<dd>
+												공원 연못에 떠 있는 3개의
+												섬과 이 섬들을 이어주는
+												4개의 다리 역사를 느끼면서
+												자연을 즐길 수 있음.
+											</dd>
+										</dl>
+									</label>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="place">
+									<input type="checkbox" name="place_02" id="place_02" data-posX="33.594536"
+										data-posY="130.351329" />
+									<label for="place_02">
+										<div class="photo">
+											<img src="./images/B2.jpg" alt="" />
+										</div>
+										<dl>
+											<dt>모모치 해변 공원</dt>
+											<dd>
+												근처에 후쿠오카 타워도
+												있어서 바다보고 사진도
+												찰칵찰칵 분위기 좋고 한적한
+												바닷가에서 여유를 즐겨보자
+											</dd>
+										</dl>
+									</label>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="place">
+									<input type="checkbox" name="place_03" id="place_03" data-posX="33.604006"
+										data-posY="130.397989" />
+									<label for="place_03">
+										<div class="photo">
+											<img src="./images/B3.jpg" alt="" />
+										</div>
+										<dl>
+											<dt>나미하노유 온천</dt>
+											<dd>
+												온천에서 푹쉬고 주변
+												돌아다니면서 구경하자!
+												들어갈 생각만 해도 노곤노곤~
+											</dd>
+										</dl>
+									</label>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="place">
+									<input type="checkbox" name="place_04" id="place_04" data-posX="33.593785"
+										data-posY="130.408531" />
+									<label for="place_04">
+										<div class="photo">
+											<img src="./images/B4.jpg" alt="" />
+										</div>
+										<dl>
+											<dt>카와바타 상점가</dt>
+											<dd>
+												후쿠오카를 대표하는 전통
+												재래시장이라함 다양한
+												먹거리와 생필품 기념품 등등
+												있다하니 들렸다가 사고싶은거
+												사고나서 집으로 고고씽 하면
+												될듯!
+											</dd>
+										</dl>
+									</label>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="place">
+									<input type="checkbox" name="place_05" id="place_05" data-posX="34.668708"
+										data-posY="135.503158" />
+									<label for="place_05">
+										<div class="photo">
+											<img src="./images/B5.jpg" alt="" />
+										</div>
+										<dl>
+											<dt>오사카 도톤보리</dt>
+											<dd>
+												도톤보리 쇼핑몰 상가밀집
+												지역이기에 돌아다니며 구경
+												여행 왔으면 기념품
+												챙겨가야지~
+											</dd>
+										</dl>
+									</label>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<!-- 테마별 -->
+					<div class="list">
+						<h2>테마별</h2>
+						<ul>
+							<li>
+								<a href="#" class="place">
+									<input type="checkbox" name="place_06" id="place_06" data-posX="34.665627"
+										data-posY="135.432434" />
+									<label for="place_06">
+										<div class="photo">
+											<img src="./images/B6.jpg" alt="" />
+										</div>
+										<dl>
+											<dt>유니버셜 스튜디오</dt>
+											<dd>
+												일본 유니버셜 스튜디오는 꼭
+												가보라고 하는 말이 있어!
+												설명 안해도 알테니 스킵!
+											</dd>
+										</dl>
+									</label>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="place">
+									<input type="checkbox" name="place_07" id="place_07" data-posX="34.687338"
+										data-posY="135.525943" />
+									<label for="place_07">
+										<div class="photo">
+											<img src="./images/B7.jpg" alt="" />
+										</div>
+										<dl>
+											<dt>오사카성</dt>
+											<dd>
+												오사카 랜드마크! 오사카를
+												왔는데 오사카 성을 안본다?
+											</dd>
+										</dl>
+									</label>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="place">
+									<input type="checkbox" name="place_08" id="place_08" data-posX="33.589835"
+										data-posY="130.411784" />
+									<label for="place_08">
+										<div class="photo">
+											<img src="./images/B8.jpg" alt="" />
+										</div>
+										<dl>
+											<dt>캐널시티 하카타</dt>
+											<dd>
+												도시 극장 컨셉으로 개장한
+												커낼시티라는데 다양한
+												쇼핑몰과 식당 카페등등 모여
+												있고 일본 3대 라멘을
+												만나볼수있다함!
+											</dd>
+										</dl>
+									</label>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="place">
+									<input type="checkbox" name="place_09" id="place_09" data-posX="35.981370"
+										data-posY="139.753716" />
+									<label for="place_09">
+										<div class="photo">
+											<img src="./images/B9.jpg" alt="" />
+										</div>
+										<dl>
+											<dt>짱구 마을</dt>
+											<dd>
+												마을 곳곳이 짱구 투성이!
+												짱구 덕후 다모여!! 짱구에
+												나왔던 곳들, 여러 테마
+												스토어들 구경해보자!
+											</dd>
+										</dl>
+									</label>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</section>
+
+			<!-- 오른쪽 -->
+			<aside class="aside">
+				<!-- 여행일수 선택 -->
+				<div class="side_01">
+					<h2>여행 일수를 선택하세요!</h2>
+					<select class="form-select" aria-label=" select ">
+						<option selected="selected"> 당일치기 (긴 일정은 추가 예정) </option>
+					</select>
+				</div>
+
+				<!-- 선택된 리스트 -->
+				<div class="select_list selectList">
+					<dl>
+						<dt>음식</dt>
+						<dd>
+							<ul class="setFoodList"></ul>
+						</dd>
+					</dl>
+					<dl>
+						<dt>장소/테마</dt>
+						<dd>
+							<ul class="setPlaceList"></ul>
+						</dd>
+					</dl>
+				</div>
+
+				<!-- 버튼 -->
+				<div class="btn_set">
+				    <a href="/guide">되돌리기</a>
+					<a href="#" class="save">계획 완성</a>
+				</div>
+			</aside>
+		</main>
+
+		<footer class="footer text-center">
+			<div class="mb-5 container-fluid">
+			  <hr>
+			  <p>ⓒ Made by | shalpha_2@naver.com | <a href="https://github.com/keartt">GitHub</a></p>
+			  </div>
+		  </footer>
+
+	</div>
+
+	<article class="popupWrap">
+		<div class="blackLayer"></div>
+		<div class="popupContent">
+			<div class="close">
+				<ion-icon name="close-circle-outline"></ion-icon>
+			</div>
+			<div class="inner">
+				<div class="planList">
+					<ul>
+						<li>
+							<dl>
+								<dt>나카스 포장마차 거리</dt>
+								<dd><img src="./images/A1.jpg" alt="" /></dd>
+							</dl>
+							<span>
+								<ion-icon name="caret-forward-outline"></ion-icon>
+							</span>
+						</li>
+						<li>
+							<dl>
+								<dt>오호리 공원</dt>
+								<dd><img src="./images/B1.jpg" alt="" /></dd>
+							</dl>
+							<span>
+								<ion-icon name="caret-forward-outline"></ion-icon>
+							</span>
+						</li>
+						<li>
+							<dl>
+								<dt>사누키우동 시나리</dt>
+								<dd><img src="./images/A2.jpg" alt="" /></dd>
+							</dl>
+							<span>
+								<ion-icon name="caret-forward-outline"></ion-icon>
+							</span>
+						</li>
+						<li>
+							<dl>
+								<dt>모모치 해변 공원</dt>
+								<dd><img src="./images/B2.jpg" alt="" /></dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+
+				<div class="description" id="capture">
+					<strong>나카스 포장마차 거리</strong> 먹고
+					<strong>오호리 공원</strong> 갔다가
+					<strong>사누키우동 시나리</strong> 먹고
+					<strong>모모치 해변 공원</strong>가자
+				</div>
+
+				<div class="btnSet">
+					<div class="prev">
+						<a href="/guide">이전 페이지</a>
+					</div>
+					<ul>
+						<li><a href="/articles">같이 갈 사람 찾기</a></li>
+						<li><a href="/articles">계획 자랑하기</a></li>
+						<li><a type="button" onclick="capture_html('capture')">저장</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</article>
+
+	<!-- 아이콘 사용할 경우 -->
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+	<script src="./scripts/index.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
+
+	<!-- 화면캡쳐 -->
+	<script>
+		//화면캡쳐
+		function capture_html(id){
+			html2canvas(document.querySelector("#"+id)).then(canvas => {
+				capture_save(canvas.toDataURL('image/png'),"capture_img.png");
+			});
+		}
+		//개인PC에 파일저장
+		function capture_save(uri, filename){
+			// 캡쳐된 파일을 이미지 파일로 내보낸다.
+			var link = document.createElement('a');
+			if (typeof link.download === 'string') {
+				link.href = uri;
+				link.download = filename;
+				document.body.appendChild(link);
+				link.click();
+				document.body.removeChild(link);
+			} else {
+				window.open(uri);
+			}
+		}
+	</script>
+
+</body>
+
+</html>
