@@ -481,9 +481,7 @@
 	<!-- 화면캡쳐 -->
 	<script>
 		const capBtn = document.querySelector(".btn_download");
-
 		capBtn.addEventListener("click", () => captureSave());
-
 		function captureSave() {
 			html2canvas(document.getElementById("capture_area")).then(
 				function (canvas) {
